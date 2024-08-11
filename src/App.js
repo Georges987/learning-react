@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import Button from "./components/button";
+import { useState } from "react";
+
+const user = {
+  firstName: 'John',
+  lastName: 'Doe'
+};
 
 function App() {
+  const [count, setCount] = useState(0);
+  function handleClick() {
+    setCount(count + 1);
+    alert(`Hello, ${user.firstName} ${user.lastName}!`)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    
+    <div>
+      <h1>Hello, world!</h1>
+      <Button count={count} onClick={handleClick} />
+      <Button count={count} onClick={handleClick} />
     </div>
   );
 }
